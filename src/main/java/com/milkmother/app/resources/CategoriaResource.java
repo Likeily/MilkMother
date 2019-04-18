@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.milkmother.app.domain.Categoria;
 import com.milkmother.app.services.CategoriaService;
 
+//Controlador Rest os métodos geralmente são pequenos
 @RestController
 @RequestMapping(value="/categorias")
-public class CategoriaResources {
+public class CategoriaResource {
 	
 	@Autowired
 	private CategoriaService service;
