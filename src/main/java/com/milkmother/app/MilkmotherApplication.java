@@ -9,8 +9,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.milkmother.app.domain.Beneficiarios;
 import com.milkmother.app.domain.Categoria;
+import com.milkmother.app.domain.Cidade;
+import com.milkmother.app.domain.Estado;
 import com.milkmother.app.repositories.BeneficiarioRepository;
 import com.milkmother.app.repositories.CategoriaRepository;
+import com.milkmother.app.repositories.CidadeRepository;
+import com.milkmother.app.repositories.EstadoRepository;
 
 @SpringBootApplication
 public class MilkmotherApplication implements CommandLineRunner {
@@ -20,6 +24,12 @@ public class MilkmotherApplication implements CommandLineRunner {
 	
 	@Autowired
 	private BeneficiarioRepository beneficiarioRepository;
+	
+	@Autowired
+	private CidadeRepository cidadeRepository;
+	
+	@Autowired
+	private EstadoRepository estadoRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(MilkmotherApplication.class, args);
@@ -44,6 +54,19 @@ public class MilkmotherApplication implements CommandLineRunner {
 		
 		categoriaRepository.saveAll(Arrays.asList(cat1, cat2));
 		beneficiarioRepository.saveAll(Arrays.asList(b1, b2, b3));
+		
+		Estado est1 = new Estado(null, "Minas Gerais");
+		Estado est2 = new Estado(null, "São Paulo");
+		
+		Cidade c1 = new Cidade(null, "Uberlândia", est1);
+		Cidade c2 = new Cidade(null, "Santo andré", est2);
+		Cidade c3 = new Cidade(null, "Campinas", est2);
+		
+		est1.getCidades().addAll(Arrays.asList(c1));
+		est2.getCidades().addAll(Arrays.asList(c2, c3));
+		
+		estadoRepository.saveAll(Arrays.asList(est1, est2));
+		cidadeRepository.saveAll(Arrays.asList(c1, c2, c3));
 		
 	}
 	

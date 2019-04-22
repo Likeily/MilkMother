@@ -13,7 +13,7 @@ import com.milkmother.app.services.exceptions.ObjectNotFoundException;
 public class ResourceExceptionHandler {
 
 	//Metodo recebe a excessão que estorou e informações da requisição.
-	@ExceptionHandler(ObjectNotFoundException.class)
+	@ExceptionHandler(ObjectNotFoundException.class )
 	public ResponseEntity<StandardError> objectNotFound(ObjectNotFoundException e, HttpServletRequest request){
 		
 		StandardError err = new StandardError(HttpStatus.NOT_FOUND.value(), e.getMessage(), System.currentTimeMillis());
