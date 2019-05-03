@@ -23,7 +23,7 @@ public class Categoria implements Serializable{
 	
 	@JsonManagedReference
 	@ManyToMany(mappedBy="categorias")
-	private List<Beneficiarios> beneficiarios = new ArrayList<>();
+	private List<Beneficiario> beneficiario = new ArrayList<>();
 	
 	public Categoria() {
 	}
@@ -50,12 +50,12 @@ public class Categoria implements Serializable{
 		this.nome = nome;
 	}
 	
-	public List<Beneficiarios> getBenefiarios() {
-		return beneficiarios;
+	public List<Beneficiario> getBenefiario() {
+		return beneficiario;
 	}
 
-	public void setBenefiarios(List<Beneficiarios> benefiarios) {
-		this.beneficiarios = benefiarios;
+	public void setBenefiarios(List<Beneficiario> benefiario) {
+		this.beneficiario = benefiario;
 	}
 
 	@Override

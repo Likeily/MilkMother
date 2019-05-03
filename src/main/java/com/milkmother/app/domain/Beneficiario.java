@@ -15,7 +15,7 @@ import javax.persistence.ManyToMany;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-public class Beneficiarios implements Serializable{
+public class Beneficiario implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -29,15 +29,15 @@ public class Beneficiarios implements Serializable{
 	@JsonBackReference
 	@ManyToMany
 	@JoinTable(name = "BENEFICIARIO_CATEGORIA", 
-		joinColumns = @JoinColumn(name = "benefiario_id"),
+		joinColumns = @JoinColumn(name = "beneficiario_id"),
 		inverseJoinColumns = @JoinColumn(name = "categoria_id")
 	)
 	public List<Categoria> categorias = new ArrayList<Categoria>();
 	
-	public Beneficiarios() {
+	public Beneficiario() {
 	}
 
-	public Beneficiarios(Integer id, String nome, String cpf, int idade, boolean orfão) {
+	public Beneficiario(Integer id, String nome, String cpf, int idade, boolean orfão) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -110,7 +110,7 @@ public class Beneficiarios implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Beneficiarios other = (Beneficiarios) obj;
+		Beneficiario other = (Beneficiario) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

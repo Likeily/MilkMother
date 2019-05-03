@@ -7,12 +7,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.milkmother.app.domain.Beneficiarios;
+import com.milkmother.app.domain.Beneficiario;
 import com.milkmother.app.domain.Categoria;
 import com.milkmother.app.domain.Cidade;
 import com.milkmother.app.domain.Estado;
 import com.milkmother.app.repositories.BeneficiarioRepository;
 import com.milkmother.app.repositories.CategoriaRepository;
+//import com.milkmother.app.repositories.CidadeRepository;
+//import com.milkmother.app.repositories.EstadoRepository;
 import com.milkmother.app.repositories.CidadeRepository;
 import com.milkmother.app.repositories.EstadoRepository;
 
@@ -31,6 +33,15 @@ public class MilkmotherApplication implements CommandLineRunner {
 	@Autowired
 	private EstadoRepository estadoRepository;
 	
+	/********************************************************
+	   
+	    a gloriosa função MAIN! :)
+	    
+	    Não precisa receber argumento nenhuma, ela se vira sozinha ;)
+	    é gente grande... :P
+    
+	 ********************************************************/
+	
 	public static void main(String[] args) {
 		SpringApplication.run(MilkmotherApplication.class, args);
 	}
@@ -41,12 +52,12 @@ public class MilkmotherApplication implements CommandLineRunner {
 		Categoria cat1 = new Categoria(null, "Estudante");
 		Categoria cat2 = new Categoria(null, "Alimentação");
 		
-		Beneficiarios b1 = new Beneficiarios(null, "José Clementino", "090.987.900-11", 30, true);
-		Beneficiarios b2 = new Beneficiarios(null, "Bianca Espirito Santo", "828.973.121-00", 30, true);
-		Beneficiarios b3 = new Beneficiarios(null, "Eder Barbarlho", "290.019.243-99", 30, false);
+		Beneficiario b1 = new Beneficiario(null, "José Clementino", "090.987.900-11", 30, true);
+		Beneficiario b2 = new Beneficiario(null, "Bianca Espirito Santo", "828.973.121-00", 30, true);
+		Beneficiario b3 = new Beneficiario(null, "Eder Barbarlho", "290.019.243-99", 30, false);
 		
-		cat1.getBenefiarios().addAll(Arrays.asList(b3));
-		cat2.getBenefiarios().addAll(Arrays.asList(b1, b2, b3));
+		cat1.getBenefiario().addAll(Arrays.asList(b3));
+		cat2.getBenefiario().addAll(Arrays.asList(b1, b2, b3));
 		
 		b1.getCategorias().addAll(Arrays.asList(cat1, cat2));
 		b2.getCategorias().addAll(Arrays.asList(cat1, cat2));
